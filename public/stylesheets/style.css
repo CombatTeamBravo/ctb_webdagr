@@ -1,7 +1,42 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	font-size: 14px; 
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
+#container {
+	min-height: 100%;
+	height: auto;
+	margin: 0px auto -40px;
+	padding: 15px;
+	!width: 320px;
+	!height: 480px;
+}
+
+#modeCont {
+	width: 100px;
+	float: left;
+	clear: left;
+}
+
+#syncCont {
+	width: 100px;
+	text-align: right;
+	float: right;
+	clear: right;
+}
+
+#gridCont {
+	font-size: 50px;
+	text-align: center;
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	font-weight: bold;
+	z-index:  10;
+}
+
+
 
 a {
   color: #00B7FF;
@@ -9,5 +44,9 @@ a {
 
 ul {
 	list-style-type: none;
+	padding: 0px;
+}
+
+p {
 	padding: 0px;
 }

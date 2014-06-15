@@ -62,7 +62,7 @@ udpServer.bind(udpPort);
 
 //code triggered whenever we receive a message from our UDP server.
 udpServer.on('message', function(message, remoteSender) {
-	var posData= JSON.parse(message);
+	var posData = JSON.parse(message);
 	console.log('Client at XPos: '+ posData.x+ ', YPos: '+ posData.y);
 	// So we've received an update, now broadcast that to our web page via a web socket...
 	ioInstance.emit('message', posData);
