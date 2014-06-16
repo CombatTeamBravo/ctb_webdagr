@@ -1,3 +1,14 @@
+// if webapp mode detected, stop rubberband scroll
+if (window.navigator.standalone == true) {
+	$(document).bind(
+		'touchmove',
+		function(e) {
+			e.preventDefault();
+		}
+	);
+}
+
+//switches for portrait or landscape
 addEventListener("load", function() { 
 	setTimeout(updateLayout, 0); 
 }, false); 

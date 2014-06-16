@@ -3,40 +3,8 @@ html, body {
 	padding: 0px;
 	margin: 0px;
 	font-size: 14px; 
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
 }
-
-#container {
-	min-height: 100%;
-	height: auto;
-	margin: 0px auto -40px;
-	padding: 15px;
-	!width: 320px;
-	!height: 480px;
-}
-
-#modeCont {
-	width: 100px;
-	float: left;
-	clear: left;
-}
-
-#syncCont {
-	width: 100px;
-	text-align: right;
-	float: right;
-	clear: right;
-}
-
-#gridCont {
-	font-size: 50px;
-	text-align: center;
-	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-	font-weight: bold;
-	z-index:  10;
-}
-
-
 
 a {
   color: #00B7FF;
@@ -48,5 +16,72 @@ ul {
 }
 
 p {
-	padding: 0px;
+	margin: 0px;
+}
+
+/* top bar */
+
+#topBar {
+	display: none;
+	padding: 0px 2px 0px 2px;
+	background-color: black;
+	color: white;
+	font-size: 8pt;
+}
+
+#statusBar{
+	table-layout: fixed;
+	width: 100%;
+}
+
+#inSync {
+	text-align: center;
+}
+
+#inBatt {
+	text-align: right;
+}
+
+#container {
+	display: none;
+	min-height: 100%;
+	height: auto;
+	margin: 0px auto -40px;
+	padding: 0px 15px 0px 15px;
+}
+
+/* time & grid */
+
+#tmeCont {
+	padding: 15px 0 15px 0;
+	font-size: 14pt;
+}
+
+#gridCont {
+	font-size: 50px;
+	text-align: center;
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	font-weight: bold;
+}
+
+/* main info blocks */
+
+.block {
+	padding: 15px 0px 0px 0px;
+	font-size: 14pt;
+	line-height: 90%;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.data {
+	text-align: right;
+}
+
+tr.trBlock {
+	background-color: #E6E6E4;
 }
