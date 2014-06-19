@@ -1,7 +1,8 @@
 
 // our web server's IP and port
 var httpPort= 8080;
-var httpIP= 'localhost';
+var httpIP= '0.0.0.0';
+
 // Are we running inside cloud 9?
 var isCloud9= false;
 if (process.argv[2]=== 'c9') {
