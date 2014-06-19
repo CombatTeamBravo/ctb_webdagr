@@ -88,7 +88,7 @@ function sendFakeUpdate() {
         alt:Math.floor((Math.random() * 20) + 1),
         dir:Math.floor((Math.random() * 360) + 1),
         spd:Math.floor((Math.random()* 30)+ 1),
-        tme:'12:00',
+        tme:[2035,6,24,12,6],
         grd:'024577'
     };
 	console.log('Sending fake POS Data at XPos: '+ fakePosData.x+ ', YPos: '+ fakePosData.y);
