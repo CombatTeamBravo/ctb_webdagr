@@ -34,11 +34,11 @@ $(function() {
 		
 		// incoming main info block
 		$('#dirTitle').text('DIR:');
-			$('#inDir').text(message.dir + '\xB0');
+			$('#inDir').text(message.dir.toFixed() + '\xB0');
 		$('#altTitle').text('ELE:')
-			$('#inAlt').text(message.alt + 'm MSL');
+			$('#inAlt').text(message.alt.toFixed() + 'm MSL');
 		$('#spdTitle').text('SPD:');
-			$('#inSpd').text(message.spd + ' km/h');
+			$('#inSpd').text(message.spd.toFixed() + ' km/h');
 			
 		// incoming waypoint block
 		$('#wpNameTitle').text('WP000' + ':');
