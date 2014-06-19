@@ -1,3 +1,18 @@
+// formatting date & time
+var monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+function timeLeadZero(timeInt) {
+    if(timeInt < 10) {
+        var addZero = "0" + String(timeInt);
+        return addZero;
+    }
+    else {
+        var timeString = String(timeInt);
+        return timeString;
+    }
+}
+
+// defines what is displayed on html
 $(function() {
 	var iosocket = io.connect();
 
@@ -12,7 +27,7 @@ $(function() {
 		$('#inBatt').text('100%')
 		$('#inSync').text('<1min')
 		
-		$('#inTme').text('2014 Jun 17 ' + message.tme);
+		$('#inTme').text(message.tme[0] + ' ' + monthName[message.tme[1] - 1] + ' ' + message.tme[2] + ' ' + timeLeadZero(message.tme[3]) + ':' + timeLeadZero(message.tme[4]));
 		
 		// incoming mgrs
 		$('#inGrid').text(message.grd);
