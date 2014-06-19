@@ -15,7 +15,7 @@ $(function() {
 		$('#inTme').text('2014 Jun 17 ' + message.tme);
 		
 		// incoming mgrs
-		$('#inGrid').text(message.x + 'E' + ' ' + message.y + 'N');
+		$('#inGrid').text(message.grd);
 		
 		// incoming main info block
 		$('#dirTitle').text('DIR:');
