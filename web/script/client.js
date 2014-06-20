@@ -22,63 +22,27 @@ function createMapGridPosition(a3Pos) {
     
 }
 
-// attempt at formatting grid... needs lots of work
-function gridSplit(gridref) {
-    var getSplit = gridref.toString();
-    var e = getSplit.slice(0, gridref.length / 2);
-    var n = getSplit.slice(gridref.length / 2);
-  
-	return [parseInt(e, 10), parseInt(n, 10)];
-}
-
+// attempt at formatting grid...
 function formatGrid(gridref) {
-    var gotSplit = gridSplit(gridref);
-    var easting = Math.round(gotSplit[0]);
-    var northing = Math.round(gotSplit[1]);
-    
-    switch(easting) {
-        // tried catching 00000 grids here, doesn't work. tried isNaN(); might not have used it properly
-        case easting === NaN:
-            var eastFormat = "00000";
-            break;
-        case easting < 10: 
-            var eastFormat = "0000" + easting.toString();
-            break;
-        case easting >= 10 && easting < 100:
-            var eastFormat = "000" +  easting.toString();
-            break;
-        case easting >= 100 && easting < 1000:
-            var eastFormat = "00" + easting.toString();
-            break;
-        case easting >= 1000 && easting < 10000:
-            var eastFormat = "0" + easting.toString();
-            break;
-        default:
-            var eastFormat = easting.toString();
+    var gridFormat = Math.round(gridref);
+    if(gridFormat === 0) {
+        var gridFormat = "00000"
     }
-    
-    switch(northing) {
-        case northing === NaN:
-            var northFormat = "00000";
-            break;
-        case northing < 10:
-            var northFormat = "0000" + northing.toString();
-            break;
-        case northing >= 10 && northing < 100:
-            var northFormat = "000" + northing.toString();
-            break;
-        case northing >= 100 && northing < 1000:
-            var northFormat = "00" + northing.toString();
-            break;
-        case northing >= 1000 && northing < 10000:
-            var northFormat = "0" + northing.toString();
-            break;
-        default:
-            var northFormat = northing.toString();
+    else if(gridFormat < 10) {
+        var gridFormat = "0000" + gridFormat.toString();
     }
-    
-    return [eastFormat, northFormat];
-    // after all that, still doesn't add leading zeros as string, fail
+    else if(gridFormat >= 10 && gridFormat < 100) {
+        var gridFormat = "000" + gridFormat.toString();
+    }
+    else if(gridFormat >= 100 && gridFormat < 1000) {
+        var gridFormat = "00" + gridFormat.toString();
+    }
+    else if(gridFormat >= 1000 && gridFormat < 10000) {
+        var gridFormat = "0" + gridFormat.toString();
+    }
+    else var gridFormat = gridFormat.toString();
+
+    return gridFormat;
 }
 
 // Document loaded - let's go!
