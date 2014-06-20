@@ -1,3 +1,4 @@
+// Document loaded - let's go!
 $(function() {
 	var iosocket = io.connect();
 
