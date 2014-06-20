@@ -26,7 +26,7 @@ function createMapGridPosition(a3Pos) {
 function formatGrid(gridref) {
     var gridFormat = Math.round(gridref);
     if(gridFormat === 0) {
-        var gridFormat = "00000"
+        var gridFormat = "00000";
     }
     else if(gridFormat < 10) {
         var gridFormat = "0000" + gridFormat.toString();
