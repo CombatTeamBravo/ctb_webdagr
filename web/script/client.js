@@ -1,4 +1,22 @@
+<<<<<<< HEAD
 // Document loaded - let's go!
+=======
+// formatting date & time
+var monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+function timeLeadZero(timeInt) {
+    if(timeInt < 10) {
+        var addZero = "0" + String(timeInt);
+        return addZero;
+    }
+    else {
+        var timeString = String(timeInt);
+        return timeString;
+    }
+}
+
+// defines what is displayed on html
+>>>>>>> f9c68216e462560ed0af164a9f1664742ced8b6f
 $(function() {
 	var iosocket = io.connect();
 
@@ -13,18 +31,18 @@ $(function() {
 		$('#inBatt').text('100%')
 		$('#inSync').text('<1min')
 		
-		$('#inTme').text('2014 Jun 17 ' + message.tme);
+		$('#inTme').text(message.tme[0] + ' ' + monthName[message.tme[1] - 1] + ' ' + message.tme[2] + ' ' + timeLeadZero(message.tme[3]) + ':' + timeLeadZero(message.tme[4]));
 		
 		// incoming mgrs
 		$('#inGrid').text(message.grd);
 		
 		// incoming main info block
 		$('#dirTitle').text('DIR:');
-			$('#inDir').text(message.dir + '\xB0');
+			$('#inDir').text(message.dir.toFixed() + '\xB0');
 		$('#altTitle').text('ELE:')
-			$('#inAlt').text(message.alt + 'm MSL');
+			$('#inAlt').text(message.alt.toFixed() + 'm MSL');
 		$('#spdTitle').text('SPD:');
-			$('#inSpd').text(message.spd + ' km/h');
+			$('#inSpd').text(message.spd.toFixed() + ' km/h');
 			
 		// incoming waypoint block
 		$('#wpNameTitle').text('WP000' + ':');
