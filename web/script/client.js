@@ -35,9 +35,9 @@ $(function() {
 		$('#container').show();
 		
 		// incoming status bar
-		$('#inMode').text('CONT')
-		$('#inBatt').text('100%')
-		$('#inSync').text('<1min')
+		$('#inMode').text('CONT');
+		$('#inBatt').text('100%');
+		$('#inSync').text('<1min');
 		
 		$('#inTme').text(message.tme[0] + ' ' + monthName[message.tme[1] - 1] + ' ' + message.tme[2] + ' ' + timeLeadZero(message.tme[3]) + ':' + timeLeadZero(message.tme[4]));
 		
@@ -47,7 +47,7 @@ $(function() {
 		// incoming main info block
 		$('#dirTitle').text('DIR:');
 			$('#inDir').text(message.dir.toFixed() + '\xB0');
-		$('#altTitle').text('ELE:')
+		$('#altTitle').text('ELE:');
 			$('#inAlt').text(message.alt.toFixed() + 'm MSL');
 		$('#spdTitle').text('SPD:');
 			$('#inSpd').text(message.spd.toFixed() + ' km/h');
@@ -57,9 +57,9 @@ $(function() {
 			$('#inWpName').text('MARK-1');
 		$('#wpGridTitle').text('POS:');
 			$('#inWpGrid').text('03626e 04238n');
-		$('#wpDirTitle').text('DIR:')
+		$('#wpDirTitle').text('DIR:');
 			$('#inWpDir').text('277' + '\xB0' + "34'");
-		$('#wpDistTitle').text('DIST:')
+		$('#wpDistTitle').text('DIST:');
 			$('#inWpDist').text('1023' + 'm');
 			
 	});
