@@ -1,5 +1,5 @@
 
-=======
+
 // formatting date & time
 var monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
@@ -14,12 +14,21 @@ function timeLeadZero(timeInt) {
     }
 }
 
-// defines what is displayed on html
->>>>>>> f9c68216e462560ed0af164a9f1664742ced8b6f
+// Returns coordinates in a standard style, no matter the source map gridref.
+function createMapGridPosition(a3Pos) {
+    
+    // todo
+    return a3Pos;
+    
+}
+
+// Document loaded - let's go!
 $(function() {
 	var iosocket = io.connect();
 
-	iosocket.on('message', function(message) {
+
+    // Whenever we get a Web Socket message...
+    iosocket.on('message', function(message) {
 		
 		// hide containers at start, then show after receiving message
 		$('#topBar').show();
