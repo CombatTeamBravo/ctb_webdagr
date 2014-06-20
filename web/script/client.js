@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-// Document loaded - let's go!
+
 =======
 // formatting date & time
 var monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
