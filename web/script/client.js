@@ -22,6 +22,65 @@ function createMapGridPosition(a3Pos) {
     
 }
 
+// attempt at formatting grid... needs lots of work
+function gridSplit(gridref) {
+    var getSplit = gridref.toString();
+    var e = getSplit.slice(0, gridref.length / 2);
+    var n = getSplit.slice(gridref.length / 2);
+  
+	return [parseInt(e, 10), parseInt(n, 10)];
+}
+
+function formatGrid(gridref) {
+    var gotSplit = gridSplit(gridref);
+    var easting = Math.round(gotSplit[0]);
+    var northing = Math.round(gotSplit[1]);
+    
+    switch(easting) {
+        // tried catching 00000 grids here, doesn't work. tried isNaN(); might not have used it properly
+        case easting === NaN:
+            var eastFormat = "00000";
+            break;
+        case easting < 10: 
+            var eastFormat = "0000" + easting.toString();
+            break;
+        case easting >= 10 && easting < 100:
+            var eastFormat = "000" +  easting.toString();
+            break;
+        case easting >= 100 && easting < 1000:
+            var eastFormat = "00" + easting.toString();
+            break;
+        case easting >= 1000 && easting < 10000:
+            var eastFormat = "0" + easting.toString();
+            break;
+        default:
+            var eastFormat = easting.toString();
+    }
+    
+    switch(northing) {
+        case northing === NaN:
+            var northFormat = "00000";
+            break;
+        case northing < 10:
+            var northFormat = "0000" + northing.toString();
+            break;
+        case northing >= 10 && northing < 100:
+            var northFormat = "000" + northing.toString();
+            break;
+        case northing >= 100 && northing < 1000:
+            var northFormat = "00" + northing.toString();
+            break;
+        case northing >= 1000 && northing < 10000:
+            var northFormat = "0" + northing.toString();
+            break;
+        default:
+            var northFormat = northing.toString();
+    }
+    
+    return [eastFormat, northFormat];
+    // after all that, still doesn't add leading zeros as string, fail
+}
+
 // Document loaded - let's go!
 $(function() {
 	var iosocket = io.connect();
