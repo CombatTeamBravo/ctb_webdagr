@@ -14,35 +14,32 @@ function timeLeadZero(timeInt) {
     }
 }
 
-// Returns coordinates in a standard style, no matter the source map gridref.
-function createMapGridPosition(a3Pos) {
-    
-    // todo
-    return a3Pos;
-    
-}
-
 // attempt at formatting grid...
 function formatGrid(gridref) {
     var gridFormat = Math.round(gridref);
     if(gridFormat === 0) {
-        var gridFormat = "00000";
+        gridFormat = "00000";
     }
     else if(gridFormat < 10) {
-        var gridFormat = "0000" + gridFormat.toString();
+        gridFormat = "0000" + gridFormat.toString();
     }
-    else if(gridFormat >= 10 && gridFormat < 100) {
-        var gridFormat = "000" + gridFormat.toString();
+    else if(gridFormat < 100) {     // No need to have the >10 check here, because the prior if condition has already grabbed anything below ten.
+        gridFormat = "000" + gridFormat.toString();
     }
-    else if(gridFormat >= 100 && gridFormat < 1000) {
-        var gridFormat = "00" + gridFormat.toString();
+    else if(gridFormat < 1000) {
+        gridFormat = "00" + gridFormat.toString();
     }
-    else if(gridFormat >= 1000 && gridFormat < 10000) {
-        var gridFormat = "0" + gridFormat.toString();
+    else if(gridFormat < 10000) {
+        gridFormat = "0" + gridFormat.toString();
     }
-    else var gridFormat = gridFormat.toString();
-
+    else 
+        gridFormat = gridFormat.toString();
     return gridFormat;
+}
+
+// Returns coordinates in a standard style, no matter the source map gridref.
+function createMapGridPosition(easting, northing) {
+    return formatGrid(easting)+ formatGrid(northing);
 }
 
 // Document loaded - let's go!
@@ -65,7 +62,8 @@ $(function() {
 		$('#inTme').text(message.tme[0] + ' ' + monthName[message.tme[1] - 1] + ' ' + message.tme[2] + ' ' + timeLeadZero(message.tme[3]) + ':' + timeLeadZero(message.tme[4]));
 		
 		// incoming mgrs
-		$('#inGrid').text(message.grd);
+		$('#inGrid').text(createMapGridPosition(message.x, message.y));
+		
 		
 		// incoming main info block
 		$('#dirTitle').text('DIR:');
