@@ -39,7 +39,7 @@ function formatGrid(gridref) {
 
 // Returns coordinates in a standard style, no matter the source map gridref.
 function createMapGridPosition(easting, northing) {
-    return formatGrid(easting)+ formatGrid(northing);
+    return formatGrid(easting) + "E" + " " + formatGrid(northing) + "N";
 }
 
 // Document loaded - let's go!
