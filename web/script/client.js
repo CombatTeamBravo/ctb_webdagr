@@ -1,18 +1,23 @@
 
-
 // formatting date & time
-var monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-
-function timeLeadZero(timeInt) {
-    if(timeInt < 10) {
-        var addZero = "0" + String(timeInt);
-        return addZero;
-    }
-    else {
-        var timeString = String(timeInt);
-        return timeString;
-    }
-}
+var dateTimeFormat = {
+    monthName: function monthNameCalc(monthTme) {
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+        return months[monthTme - 1];
+    },
+    
+    leadZero: function leadZero(timeInt) {
+        if(timeInt < 10) {
+            var addZero = "0" + timeInt.toString();
+            return addZero;
+        }
+        else {
+            var timeString = timeInt.toString();
+            return timeString;
+        }  
+    },
+    
+};
 
 // attempt at formatting grid...
 function formatGrid(gridref) {
@@ -59,7 +64,7 @@ $(function() {
 		$('#inBatt').text('100%');
 		$('#inSync').text('<1min');
 		
-		$('#inTme').text(message.tme[0] + ' ' + monthName[message.tme[1] - 1] + ' ' + message.tme[2] + ' ' + timeLeadZero(message.tme[3]) + ':' + timeLeadZero(message.tme[4]));
+		$('#inTme').text(message.tme[0] + ' ' + dateTimeFormat.monthName(message.tme[1]) + ' ' + message.tme[2] + ' ' + dateTimeFormat.leadZero(message.tme[3]) + ':' + dateTimeFormat.leadZero(message.tme[4]));
 		
 		// incoming mgrs
 		$('#inGrid').text(createMapGridPosition(message.x, message.y));
